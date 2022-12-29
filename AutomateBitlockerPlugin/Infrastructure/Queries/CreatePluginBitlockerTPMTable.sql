@@ -1,0 +1,17 @@
+﻿CREATE TABLE `labtech`.`plugin_bitlockertpmplugin_data` (
+  `ComputerID` INT NOT NULL,
+  `TpmPresent` TINYINT(1) NOT NULL,
+  `TpmReady` TINYINT(1) NULL,
+  `TpmManagedAuthLevel` VARCHAR(255) NULL,
+  `TpmAutoProvisioning` TINYINT(1) NULL,
+  `VolumeType` VARCHAR(255) NULL,
+  `MountPoint` VARCHAR(255) NULL,
+  `CapacityGB` VARCHAR(255) NULL,
+  `VolumeStatus` VARCHAR(255) NULL,
+  `EncryptionPercentage` VARCHAR(255) NULL,
+  `KeyProtector` VARCHAR(255) NULL,
+  `ProtectionStatus` VARCHAR(255) NULL,
+  `RecoveryKey` VARCHAR(255) NULL,
+  `Created` DATETIME NOT NULL,
+  `Updated` DATETIME NOT NULL,
+  PRIMARY KEY (`ComputerID`));

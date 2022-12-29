@@ -1,0 +1,1 @@
+Get-Content "\\hoth-automate\c$\Program Files\LabTech\Logs\Plugin_AutomateBitlockerPlugin.txt" -Tail 5 -Wait

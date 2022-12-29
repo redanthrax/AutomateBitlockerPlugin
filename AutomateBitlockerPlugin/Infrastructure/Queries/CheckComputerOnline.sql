@@ -1,0 +1,1 @@
+﻿select count(*) from computers where computerid = @ComputerID and lastcontact > (now() - interval 15 minute)

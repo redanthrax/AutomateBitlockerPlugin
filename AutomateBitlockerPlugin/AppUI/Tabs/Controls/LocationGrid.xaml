@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="AutomateBitlockerPlugin.AppUI.Tabs.Controls.LocationGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AutomateBitlockerPlugin.AppUI.Tabs.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="650" Loaded="UserControl_Loaded" 
+             HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <DataGrid x:Name="LocationData" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <DataGrid.RowStyle>
+            <Style TargetType="DataGridRow">
+                <Style.Triggers>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding TPMPresent}" Value="True" />
+                            <Condition Binding="{Binding TPMReady}" Value="True" />
+                            <Condition Binding="{Binding ProtectionStatus}" Value="Off" />
+                            <Condition Binding="{Binding VolumeStatus}" Value="FullyDecrypted" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="Background" Value="Yellow" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding VolumeStatus}" Value="EncryptionInProgress" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding VolumeStatus}" Value="DecryptionInProgress" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding TPMPresent}" Value="True" />
+                            <Condition Binding="{Binding TPMReady}" Value="True" />
+                            <Condition Binding="{Binding ProtectionStatus}" Value="On" />
+                            <Condition Binding="{Binding VolumeStatus}" Value="FullyEncrypted" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="Background" Value="LimeGreen" />
+                            <Setter Property="IsEnabled" Value="False" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding TPMPresent}" Value="True" />
+                            <Condition Binding="{Binding TPMReady}" Value="False" />
+                            <Condition Binding="{Binding ProtectionStatus}" Value="Off" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="Background" Value="Red" />
+                            <Setter Property="IsEnabled" Value="False" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                    <MultiDataTrigger>
+                        <MultiDataTrigger.Conditions>
+                            <Condition Binding="{Binding TPMPresent}" Value="False" />
+                        </MultiDataTrigger.Conditions>
+                        <MultiDataTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="False" />
+                        </MultiDataTrigger.Setters>
+                    </MultiDataTrigger>
+                </Style.Triggers>
+            </Style>
+        </DataGrid.RowStyle>
+        <DataGrid.CellStyle>
+            <Style TargetType="{x:Type DataGridCell}">
+                <Style.Triggers>
+                    <Trigger Property="DataGridCell.IsSelected" Value="True">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </DataGrid.CellStyle>
+        <DataGrid.Columns>
+            <DataGridTemplateColumn>
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+            <DataGridTextColumn Header="Computer Name" Binding="{Binding ComputerName}" IsReadOnly="True" />
+            <DataGridTextColumn Header="TPM Present" Binding="{Binding TPMPresent}" IsReadOnly="True" />
+            <DataGridTextColumn Header="TPM Ready" Binding="{Binding TPMReady}" IsReadOnly="True" />
+            <DataGridTextColumn Header="Volume Status" Binding="{Binding VolumeStatus}" IsReadOnly="True" />
+            <DataGridTextColumn Header="Protection Status" Binding="{Binding ProtectionStatus}" IsReadOnly="True" />
+            <DataGridTextColumn Header="Has Recovery Key" Binding="{Binding HasRecoveryKey}" IsReadOnly="True" />
+            <DataGridTextColumn Header="Online Status" Binding="{Binding IsOnline}" IsReadOnly="True" />
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

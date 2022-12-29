@@ -1,0 +1,1 @@
+﻿ALTER TABLE `labtech`.`plugin_bitlockertpmplugin_data` ADD COLUMN `IsDomainController` TINYINT(1) NOT NULL AFTER `Updated`;

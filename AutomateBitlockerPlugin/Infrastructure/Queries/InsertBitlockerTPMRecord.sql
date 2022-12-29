@@ -1,0 +1,33 @@
+﻿INSERT INTO `{0}` (
+`ComputerID`,
+`TpmPresent`, 
+`TpmReady`,
+`TpmManagedAuthLevel`,
+`TpmAutoProvisioning`,
+`VolumeType`,
+`MountPoint`, 
+`CapacityGB`, 
+`VolumeStatus`, 
+`EncryptionPercentage`, 
+`KeyProtector`,
+`ProtectionStatus`,
+`RecoveryKey`,
+`Created`,
+`IsDomainController`
+) VALUES (
+@ComputerID,
+@TpmPresent, 
+@TpmReady, 
+@TpmManagedAuthLevel,
+@TpmAutoProvisioning,
+@VolumeType,
+@MountPoint, 
+@CapacityGB, 
+@VolumeStatus, 
+@EncryptionPercentage, 
+@KeyProtector,
+@ProtectionStatus, 
+@RecoveryKey,
+NOW(),
+@IsDomainController
+)
