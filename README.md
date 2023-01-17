@@ -15,6 +15,12 @@ in order to install the released plugin.
 
 ## Screenshots
 
+![Bitlocker Computer](https://github.com/redanthrax/AutomateBitlockerPlugin/blob/master/images/BitlockerComputer.png)
+
+![Bitlocker GPO Deployed](https://github.com/redanthrax/AutomateBitlockerPlugin/blob/master/images/BitlockerLocationGPODeployed.png)
+
+![Bitlocker GPO Undeployed](https://github.com/redanthrax/AutomateBitlockerPlugin/blob/master/images/BitlockerLocationGPOUndeployed.png)
+
 ## Note
 
 Development of this plugin has ended. The code is available for changes and I
