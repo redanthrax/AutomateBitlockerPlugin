@@ -7,6 +7,8 @@ A Bitlocker management plugin for Automate.
 Follow the instructions at [Plugins4Automate](https://www.plugins4automate.com/pages/how-to-install-plugins-to-labtech)
 in order to install the released plugin.
 
+Note: During install be sure to check the Remote Agent checkbox.
+
 ## Features
 - On-demand bitlocker encryption
 - Key backup and history
